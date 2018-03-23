@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Usuń Klienta</title>
+<link rel="stylesheet" th:href="@{/bootstrap.min.css}" type="text/css"/>
+	<script th:src="@{/jquery.min.js}"></script>
+	<script th:src="@{/bootstrap.min.js}"></script>
+	<link rel="stylesheet" th:href="@{/jquery.dataTables.min.css}" type="text/css" />
+	<script th:src="@{/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/table.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+<a href="/" class="navbar-brand">WYPOŻYCZALNIA SAMOCHODÓW</a>
+</div>
+<div>
+<ul class="nav navbar-nav">
+<li><a th:href="@{/klienci}">Dodaj Klienta</a></li>
+<li><a th:href="@{/samochody}">Dodaj Samochod</a></li>
+<li><a th:href="@{/samochodyklient}">Wypożycz</a></li>
+<li><a th:href="@{/usunklienta}">Usuń Klienta</a></li>
+<li><a th:href="@{/usunsamochod}">Usuń Samochod</a></li>
+<li><a th:href="@{/klienciLista}">Lista Klientow</a></li>
+<li><a th:href="@{/samochodyLista}">Lista Samochodow</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- <form action="#" th:action="@{/usunklientp}" method="post" th:object="${klient}">
+<table border="0">
+<tbody>
+	<tr><td>Pesel klienta</td><td><input field="text" th:field="*{pesel}" /></td></tr>
+	<tr><td> <input type="submit" value="Submit"/></td>	</tr>
+	 </tbody>
+</table>
+</form> -->
+ <center><h1 class="page-header">Usuń Klienta</h1></center>
+<table class="table table-bordered panel-body">
+<thead>
+<tr class="row">
+<th class="col-sm-3 text-center" style="background-color: #a1c4ff;">Imie</th>
+<th class="col-sm-3 text-center" style="background-color: #c39fff;">Nazwisko</th>
+<th class="col-sm-3 text-center" style="background-color: #ffdb97;">Pesel</th>
+<th class="text-center"></th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="klient : ${Listaklientow}" th:object="${klient}" class="row">
+ 	<td class="col-sm-3 text-center" style="background-color: #d5e5ff;" th:text="*{imie}"></td> 
+	<td class="col-sm-3 text-center" style="background-color: #decbff;" th:text="*{nazwisko}"></td> 
+	<td class="col-sm-3 text-center" style="background-color: #fff1ce;" th:text="*{pesel}"></td> 
+	<td class="text-center" width="5%" style="background-color: #ffcdbe;"><a th:href="@{'/delete/klient/' + *{id} }" class="btn btn-danger">Usuń</a></td> 
+ 	</tr>
+</tbody>
+</table>
+
+</body>
+</html>

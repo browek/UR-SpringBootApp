@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Dodaj Samochód</title>
+<link rel="stylesheet" th:href="@{/bootstrap.min.css}" type="text/css" />
+<script th:src="@{/jquery.min.js}"></script>
+<script th:src="@{/bootstrap.min.js}"></script>
+<link rel="stylesheet" th:href="@{/jquery.dataTables.min.css}"
+	type="text/css" />
+<script th:src="@{/jquery.dataTables.min.js}"></script>
+<script th:src="@{/table.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+<a href="/" class="navbar-brand">WYPOŻYCZALNIA SAMOCHODÓW</a>
+</div>
+<div>
+<ul class="nav navbar-nav">
+<li><a th:href="@{/klienci}">Dodaj Klienta</a></li>
+<li><a th:href="@{/samochody}">Dodaj Samochod</a></li>
+<li><a th:href="@{/samochodyklient}">Wypożycz</a></li>
+<li><a th:href="@{/usunklienta}">Usuń Klienta</a></li>
+<li><a th:href="@{/usunsamochod}">Usuń Samochod</a></li>
+<li><a th:href="@{/klienciLista}">Lista Klientow</a></li>
+<li><a th:href="@{/samochodyLista}">Lista Samochodow</a></li>
+</ul>
+</div>
+</div>
+</nav>
+	<center>
+		<form action="#" th:action="@{/wyslijsamochod}" method="post" th:object="${samochod}">
+			<table border="0">
+			<h1 class="page-header">Dodaj Samochód</h1>
+				<tr>
+					<td><input field="text" class="form-control form-control-lg" placeholder="Marka" th:field="*{marka}" /></td>
+				</tr>
+				<tr>
+					<td><input field="text" class="form-control form-control-lg" placeholder="Model" th:field="*{model}" /></td>
+				</tr>
+				<tr>
+					<td><input field="text" class="form-control form-control-lg" placeholder="Rok produkcji" type="number" min="1" th:field="*{rok_produkcji}" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" class="btn btn-success btn-lg" value="Zapisz" /></td>
+				</tr>
+			</table>
+		</form>
+	</center>
+</body>
+</html>
